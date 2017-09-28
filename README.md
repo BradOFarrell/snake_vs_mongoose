@@ -22,7 +22,7 @@ The purpose of this project is to familiarize myself with MongoDB, Express, Mong
 
 ### Entity Relationship Diagram
 
-![](https://i.imgur.com/BqFkcAl.jpg)
+![](https://i.imgur.com/rUNWYEN.jpg)
 
 ### External Links
 
