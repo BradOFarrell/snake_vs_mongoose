@@ -20,8 +20,11 @@ The purpose of this project is to familiarize myself with MongoDB, Express, Mong
 
 ![](https://i.imgur.com/xlBGN10.jpg)
 
+### Entity Relationship Diagram
+
+![](https://i.imgur.com/BqFkcAl.jpg)
+
 ### External Links
 
 * [Trello Board (contains user stories)](https://trello.com/b/5zyFGe0u/snake-vs-mongoose)
-* [Heroku (will host final app)](https://powerful-lowlands-91821.herokuapp.com/cool)
-
+* [Heroku (will host final app)](https://snake-vs-mongoose.herokuapp.com/)
