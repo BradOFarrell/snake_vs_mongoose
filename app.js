@@ -6,11 +6,21 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// Database 
 var mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI); 
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+mongoose.connection.on('error', function(err) {
+  console.error('MongoDB connection error: ' + err);
+  process.exit(-1);
+  }
+);
+mongoose.connection.once('open', function() {
+  console.log("Mongoose has connected to MongoDB!");
+});
+
+// Controllers
+var index = require('./controllers/index');
 
 var app = express();
 
@@ -27,7 +37,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -46,5 +55,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+const port = 1337;
+app.listen(port, () => {
+    console.log("----SERVER IS UP AND RUNNIN ON "+port)
+})
 
 module.exports = app;

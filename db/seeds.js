@@ -23,6 +23,7 @@ var LogModel = Schema.LogModel;
 var ResultsModel = Schema.ResultsModel;
 
 // First we clear the database of existing students and projects.
+/*
 UserModel.remove({}, function (err) {
     console.log(err);
 });
@@ -32,6 +33,7 @@ LogModel.remove({}, function (err) {
 ResultsModel.remove({}, function (err) {
     console.log(err);
 });
+*/
 
 // Create sample logs: These represent a snake's movements
 var exampleLog1 = new LogModel({log: "nnneeeswnewnnns"});
