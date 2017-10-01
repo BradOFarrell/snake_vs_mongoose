@@ -1,6 +1,26 @@
+<p id="gameBoard">
+<img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png">
+</br>
+<img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png">
+</br>
+<img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png">
+</br>
+<img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png">
+</br>
+<img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png">
+</br>
+<img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png">
+</br>
+<img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png"><img src="/img/apple.png">
+</p>
+
+
 <h1>{{user}}</h1>
 <p>You vs {{opponentName}} using the moveset {{mongoosePath}}</p>
 <p>{{results}}</p>
+
+
+<p id="postform">
 <form action="/" method="POST">
     <label for="username">Username</label>
     <input type="text" name="username" value="brad">
@@ -19,10 +39,11 @@
     </br>
     <button type="submit">Create</button>
 </form>
+</p>
+
 <script>
 // Turn backend data into variables that can be used by snake.js using handlebars
 const opponentName = "{{opponentName}}";
 const mongoosePath = "{{mongoosePath}}";
 const results = [{{results}}];
 </script>
-<script src="/js/snake.js"></script>
