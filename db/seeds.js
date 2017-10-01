@@ -23,7 +23,6 @@ var LogModel = Schema.LogModel;
 var ResultsModel = Schema.ResultsModel;
 
 // First we clear the database of existing students and projects.
-/*
 UserModel.remove({}, function (err) {
     console.log(err);
 });
@@ -33,7 +32,6 @@ LogModel.remove({}, function (err) {
 ResultsModel.remove({}, function (err) {
     console.log(err);
 });
-*/
 
 // Create sample logs: These represent a snake's movements
 var exampleLog1 = new LogModel({log: "nnneeeswnewnnns"});
@@ -50,6 +48,20 @@ var exampleResults = new ResultsModel({
     snakeUsername: exampleUserBrad.username,
     snakeScore: 8,
     mongooseUsername: exampleUserJayme.username,
+    mongooseScore: 6, 
+    timeStamp: new Date()
+})
+var exampleResults2 = new ResultsModel({
+    snakeUsername: exampleUserBrad.username,
+    snakeScore: 8,
+    mongooseUsername: exampleUserGlenn.username,
+    mongooseScore: 6, 
+    timeStamp: new Date()
+})
+var exampleResults3 = new ResultsModel({
+    snakeUsername: exampleUserJayme.username,
+    snakeScore: 8,
+    mongooseUsername: exampleUserGlenn.username,
     mongooseScore: 6, 
     timeStamp: new Date()
 })
@@ -76,6 +88,20 @@ exampleUsers.forEach(function (user, i) {
 
 // Save the results on their own
 exampleResults.save(function (err) {
+    if (err) {
+        console.log(err);
+        return;
+    }
+    console.log(exampleResults);
+});
+exampleResults2.save(function (err) {
+    if (err) {
+        console.log(err);
+        return;
+    }
+    console.log(exampleResults);
+});
+exampleResults3.save(function (err) {
     if (err) {
         console.log(err);
         return;

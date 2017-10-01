@@ -1,2 +1,28 @@
 <h1>{{user}}</h1>
-<p>You vs {{opponentName}} using the moveset {{opponentLog}}</p>
+<p>You vs {{opponentName}} using the moveset {{mongoosePath}}</p>
+<p>{{results}}</p>
+<form action="/" method="POST">
+    <label for="username">Username</label>
+    <input type="text" name="username" value="brad">
+    </br>
+    <label for="log">Log</label>
+    <input type="text" name="log" value="newnnnsnnneeesw">
+    </br>
+    <label for="myScore">My Score</label>
+    <input type="number" name="myScore" value="3">
+    </br>
+    <label for="opponentName">Opponent Name</label>
+    <input type="text" name="opponentName" value="austin">
+    </br>
+    <label for="opponentScore">Opponent Score</label>
+    <input type="number" name="opponentScore" value="3">
+    </br>
+    <button type="submit">Create</button>
+</form>
+<script>
+// Turn backend data into variables that can be used by snake.js using handlebars
+const opponentName = "{{opponentName}}";
+const mongoosePath = "{{mongoosePath}}";
+const results = [{{results}}];
+</script>
+<script src="/js/snake.js"></script>
