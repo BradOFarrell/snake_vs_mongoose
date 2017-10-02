@@ -1,7 +1,13 @@
 body {
     color: red;
-    background: green;
+    background: green
 }
 img {
-    background: #a4ae68;
+    background: #a4ae68
+}
+.darkImg{
+    background: #a4ae68    
+}
+.lightImg{
+    background: #80AE68    
 }
