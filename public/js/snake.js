@@ -450,7 +450,7 @@ function loop(interval, turn){
     }
 
     // End loop at 30 seconds
-    if(newClock < 0){
+    if(newClock < 0 && State.isRunning){
         State.isRunning = false;
         View.showResults()
         $("#myLog").val(State.snake.log)
