@@ -6,9 +6,9 @@
 // Stores main variables for game
 const State = {
     playerName: "Brad",
-    opponentName: opponentName,
-    mongoosePath: mongoosePath,
-    results: results,
+    opponentName: opponentName, // Imported string, enemy username
+    mongoosePath: mongoosePath, // Imported string, enemy path
+//    results: results, // Imported array, contains results objects
     isRunning: true,
     boardSize: 7, 
     snake: {},
@@ -36,6 +36,13 @@ const State = {
             State.board[SpriteObj.x][SpriteObj.y] = SpriteObj;     
             State.board[SpriteObj.x][SpriteObj.y].updateSprite();     
         }
+    },
+    gameOver: (x,y)=>{
+        State.isRunning = false;
+        View.updateClock("Game Over");
+        View.spillBlood(x,y);
+        View.turnBodyRed();
+        setTimeout(window.location.reload.bind(window.location), 1000);
     }
 }
 
@@ -67,6 +74,13 @@ const View = {
     },
     updateClock: (time)=>{
         $("#clock").html(time);
+    },
+    turnBodyRed: ()=>{
+        $(document.body).addClass("blood");
+    },
+    showResults: ()=>{
+        $("#gamePage").remove();
+        $("#resultsPage").css("visibility", "visible");
     }
 }
 
@@ -127,6 +141,7 @@ class Snake extends Sprite {
         this.log = "";
         this.lastTurnMoved = 0;
         this.bodyTimer = 3;
+        this.score = 0;
         this.img ="snake_head_s"
     }
     rotate(direction){
@@ -169,7 +184,7 @@ class Snake extends Sprite {
             || !((State.board[this.x][this.y].img.substring(0,5) == "apple")
             || (State.board[this.x][this.y].img.substring(0,5) == "grass")
             )){
-                View.spillBlood(oldX,oldY)
+                State.gameOver(oldX,oldY)
                 this.x = oldX;
                 this.y = oldY;
                 console.log("Game over");
@@ -179,6 +194,7 @@ class Snake extends Sprite {
                 if(State.board[this.x][this.y].img.substring(0,5) == "apple"){
                     console.log("OmNomNom!");
                     this.bodyTimer++;
+                    this.score++;
                     for(let i = 0; i < State.boardSize; i++){
                         for(let j = 0; j < State.boardSize; j++){
                             if(State.board[i][j].img.substring(0,5) == "snake")
@@ -207,7 +223,7 @@ class SnakeBody extends Sprite {
     constructor(x,y){
         super(x,y);
         this.timer = State.snake.bodyTimer;
-        this.img = "snake_body"
+        this.img = "snake_body";
     }
     onEachTurn(turn){
         if(turn % 2 == 0){
@@ -226,14 +242,13 @@ class SnakeBody extends Sprite {
 class Mongoose extends Sprite {
     constructor(x,y){
         super(x,y);
-//      this.inputLog = "ssssseenwnwwssseeennnnwnnwswssss"
-//      this.inputLog = "ssssseennwwwseswseennnwnnwneeess"
-//      this.inputLog = "sssssennennnwwwssseeenneenesswss"
+        this.inputLog = State.mongoosePath;
         this.logNext = "n"
         this.logRotate = "n"
         this.delay = 2;
         this.lastTurnMoved = 0;
         this.bodyTimer = 3;
+        this.score = 0;
         this.img ="mongoose_head_n"
     }
     onEachTurn(turn){
@@ -274,7 +289,7 @@ class Mongoose extends Sprite {
         || (this.y < 0 || this.y == State.boardSize)
         || (State.board[this.x][this.y].img.substring(0,10) == "snake_head")
         ){
-            View.spillBlood(oldX,oldY)
+            State.gameOver(oldX,oldY)
             this.x = oldX;
             this.y = oldY;
             console.log("Game over");
@@ -284,6 +299,7 @@ class Mongoose extends Sprite {
             if(State.board[this.x][this.y].img.substring(0,5) == "apple"){
                 console.log("OmNomNom!");
                 this.bodyTimer++;
+                this.score++;                
                 for(let i = 0; i < State.boardSize; i++){
                     for(let j = 0; j < State.boardSize; j++){
                         if(State.board[i][j].img.substring(0,8) == "mongoose")
@@ -431,6 +447,15 @@ function loop(interval, turn){
             clockDisplay = "<span style='color:yellow'>"+newClock+"</span>"
         }
         View.updateClock(newClock);
+    }
+
+    // End loop at 30 seconds
+    if(newClock < 0){
+        State.isRunning = false;
+        View.showResults()
+        $("#myLog").val(State.snake.log)
+        $("#myScore").val(State.snake.score)
+        $("#opponentScore").val(State.mongoose.score)
     }
 
     // Check to see if game is still running

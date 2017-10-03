@@ -1,48 +1,51 @@
-
-<div class="container">
-
-<h1 class="text-center">Snake vs Mongoose</h1>
-<p id="gameBoard">
-<img src="/img/apple.png">
-</p>
-<h1 style="width:700px; align: center">
-<span style="float:left;">⏰ <span id="clock">30</span></span>
-<span style="float:right;">
-<span style="color:#b26dff">BradOFarrell</span>
-vs
-<span style="color:#f3a065">{{opponentName}}</span></span>
-</h1>
-<p style="clear:both"></br></br></br>
-You vs {{opponentName}} using the moveset {{mongoosePath}}</p>
-<p>{{results}}</p>
+    <h1 class="text-center">Snake vs Mongoose</h1>
+<div class="container" id="gamePage">
+    <p id="gameBoard">
+    <img src="/img/apple.png">
+    </p>
+    <h1 style="width:700px; align: center">
+    <span style="float:left;">⏰ <span id="clock">30</span></span>
+    <span style="float:right;">
+    <span style="color:#b26dff">You</span>
+    vs
+    <span style="color:#f3a065">{{opponentName}}</span></span>
+    </h1>
 </div>
 
+<div class="container" style="width:700px; background: #19440A; visibility:hidden;" id="resultsPage">
+    <h1 id="resultsMessage">Congratulations!</h1>
+    </br>
+    Enter your username, and then click submit to send your results to the server.
+    <p id="postform">
+    <form action="/" method="POST">
+        <label for="username">Username</label>
+        <input type="text" name="username" value="YourNameHere">
+        </br>
+        <label for="log">Log</label>
+        <input type="text" name="myLog" id="myLog" value="" readonly>
+        </br>
+        <label for="myScore">My Score</label>
+        <input type="number" name="myScore" id="myScore" value="" readonly>
+        </br>
+        <label for="opponentName">Opponent Name</label>
+        <input type="text" name="opponentName" id="opponentName" value="{{opponentName}}" readonly>
+        </br>
+        <label for="opponentScore">Opponent Score</label>
+        <input type="number" name="opponentScore" id="opponentScore" value="" readonly>
+        </br>
+        <button type="submit" onClick="setTimeout(window.location.reload.bind(window.location), 1000)">Create</button>
+    </form>
+    </p>
+    </br>
+    Other results from the same oppoonent. (Under Construction)
+    <pre>{{results}}</pre>
+</div>
 
-<p id="postform">
-<form action="/" method="POST">
-    <label for="username">Username</label>
-    <input type="text" name="username" value="brad">
-    </br>
-    <label for="log">Log</label>
-    <input type="text" name="log" value="newnnnsnnneeesw">
-    </br>
-    <label for="myScore">My Score</label>
-    <input type="number" name="myScore" value="3">
-    </br>
-    <label for="opponentName">Opponent Name</label>
-    <input type="text" name="opponentName" value="austin">
-    </br>
-    <label for="opponentScore">Opponent Score</label>
-    <input type="number" name="opponentScore" value="3">
-    </br>
-    <button type="submit">Create</button>
-</form>
-</p>
 
 <script>
 // Turn backend data into variables that can be used by snake.js using handlebars
 const opponentName = "{{opponentName}}";
 const mongoosePath = "{{mongoosePath}}";
-const results = [{{results}}];
+//const results = [{{results}}];
 </script>
 <script src="/js/snake.js"></script>

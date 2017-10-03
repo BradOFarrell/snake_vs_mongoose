@@ -15,13 +15,23 @@ router.get('/', (request, response) => {
           const opponent = user[Math.floor(Math.random()*user.length)];
           const mongoosePath = opponent.logs[Math.floor(Math.random()*opponent.logs.length)].log;
           console.log(opponent);
-
+        
           ResultsModel.find({mongooseUsername: opponent.username})
             .then((results) => {
+
+              let processedResults = new Array();
+
+              results.forEach((e)=>{
+                let output = ""
+                output = JSON.stringify(e)
+                output = output.replace(new RegExp('"', 'g'),"X")
+                processedResults.push(output)
+              });
+
               response.render('index', {
               opponentName: opponent.username,
               mongoosePath: mongoosePath,
-              results: results            
+              //results: processedResults            
             }).catch((error) => {
               console.log(error)
             })
@@ -44,7 +54,7 @@ router.post('/', (request, response) => {
     timeStamp: new Date()
   });
   const newLog = new LogModel({
-    log: request.body.log,
+    log: request.body.myLog,
   });
   const newUser = new UserModel({
     username: request.body.username,

@@ -34,40 +34,40 @@ ResultsModel.remove({}, function (err) {
 });
 
 // Create sample logs: These represent a snake's movements
-var exampleLog1 = new LogModel({log: "nnneeeswnewnnns"});
-var exampleLog2 = new LogModel({log: "newnnnsnnneeesw"});
-var exampleLog3 = new LogModel({log: "eeswnewnnnsnnne"});
+var exampleLog1 = new LogModel({log: "ssssseenwnwwssseeennnnwnnwswssss"});
+var exampleLog2 = new LogModel({log: "ssssseennwwwseswseennnwnnwneeess"});
+var exampleLog3 = new LogModel({log: "sssssennennnwwwssseeenneenesswss"});
 
 // Create sample users: These contain a username and a log
-var exampleUserBrad = new UserModel({username: "BradOFarrell", logs: [exampleLog1, exampleLog2]});
-var exampleUserGlenn = new UserModel({username: "GlennBrown", logs: [exampleLog2, exampleLog3]});
-var exampleUserJayme = new UserModel({username: "JaymeMarshall", logs: [exampleLog1, exampleLog2]});
+var exampleUserAustin = new UserModel({username: "Austin", logs: [exampleLog1, exampleLog3]});
+var exampleUserGlenn = new UserModel({username: "Glenn", logs: [exampleLog2, exampleLog2]});
+var exampleUserJayme = new UserModel({username: "Jayme", logs: [exampleLog3, exampleLog1]});
 
 // Create an example of a results file
 var exampleResults = new ResultsModel({
-    snakeUsername: exampleUserBrad.username,
-    snakeScore: 8,
+    snakeUsername: exampleUserAustin.username,
+    snakeScore: 7,
     mongooseUsername: exampleUserJayme.username,
     mongooseScore: 6, 
     timeStamp: new Date()
 })
 var exampleResults2 = new ResultsModel({
-    snakeUsername: exampleUserBrad.username,
-    snakeScore: 8,
+    snakeUsername: exampleUserAustin.username,
+    snakeScore: 7,
     mongooseUsername: exampleUserGlenn.username,
     mongooseScore: 6, 
     timeStamp: new Date()
 })
 var exampleResults3 = new ResultsModel({
     snakeUsername: exampleUserJayme.username,
-    snakeScore: 8,
+    snakeScore: 5,
     mongooseUsername: exampleUserGlenn.username,
     mongooseScore: 6, 
     timeStamp: new Date()
 })
 
 // create two arrays that we can iterate over
-var exampleUsers = [exampleUserBrad, exampleUserGlenn, exampleUserJayme];
+var exampleUsers = [exampleUserAustin, exampleUserGlenn, exampleUserJayme];
 
 // Before we attempt to save, console log examples
 

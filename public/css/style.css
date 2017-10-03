@@ -5,6 +5,12 @@ body {
 img {
     background: #a4ae68
 }
+button {
+    color: red
+}
+form {
+    color: red
+}
 .dark{
     background: #68ae50
 }
