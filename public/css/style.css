@@ -1,5 +1,5 @@
 body {
-    color: red;
+    color: white;
     background: green
 }
 img {
@@ -10,4 +10,7 @@ img {
 }
 .light{
     background: #a4ae68
+}
+.blood{
+    background: #A51414
 }
