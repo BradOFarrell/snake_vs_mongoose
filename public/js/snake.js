@@ -43,6 +43,13 @@ const State = {
         View.spillBlood(x,y);
         View.turnBodyRed();
         setTimeout(window.location.reload.bind(window.location), 1000);
+    },
+    timeOver: ()=>{
+        State.isRunning = false;
+        View.showResults()
+        $("#myLog").val(State.snake.log)
+        $("#myScore").val(State.snake.score)
+        $("#opponentScore").val(State.mongoose.score)
     }
 }
 
@@ -452,11 +459,7 @@ function loop(interval, turn){
 
     // End loop at 30 seconds
     if(newClock < 0 && State.isRunning){
-        State.isRunning = false;
-        View.showResults()
-        $("#myLog").val(State.snake.log)
-        $("#myScore").val(State.snake.score)
-        $("#opponentScore").val(State.mongoose.score)
+        State.timeOver()
     }
 
     // Check to see if game is still running
