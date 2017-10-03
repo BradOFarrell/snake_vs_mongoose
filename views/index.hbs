@@ -1,15 +1,16 @@
-    <h1 class="text-center">Snake vs Mongoose</h1>
+    <h3 class="text-center">Snake vs Mongoose</h3>
 <div class="container" id="gamePage">
     <p id="gameBoard">
     <img src="/img/apple.png">
     </p>
-    <h1 style="width:700px; align: center">
+    <h3 style="width:700px; align: center">
     <span style="float:left;">⏰ <span id="clock">30</span></span>
     <span style="float:right;">
     <span style="color:#b26dff">You</span>
     vs
     <span style="color:#f3a065">{{opponentName}}</span></span>
-    </h1>
+    </h3>
+    <p style="clear:both"><br>This is an asynchronous multiplayer game. You control the snake with the arrow keys and the mongoose is controlled by ghost data left by another player - in this case, your opponent is {{opponentName}}. Try to get as many apples as you can while avoiding crashing into yourself, the mongoose, or the borders of the stage. If you can survive for 30 seconds, you will be able to enter your name and submit your data so that it can appear in another player's game as a mongoose. </p>
 </div>
 
 <div class="container" style="width:700px; background: #19440A; visibility:hidden;" id="resultsPage">
@@ -40,8 +41,6 @@
     Other results from the same oppoonent. (Under Construction)
     <pre>{{results}}</pre>
 </div>
-
-
 <script>
 // Turn backend data into variables that can be used by snake.js using handlebars
 const opponentName = "{{opponentName}}";
