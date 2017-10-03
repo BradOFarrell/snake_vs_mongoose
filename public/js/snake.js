@@ -446,7 +446,7 @@ function loop(interval, turn){
         } else if(newClock <= 20){
             clockDisplay = "<span style='color:yellow'>"+newClock+"</span>"
         }
-        View.updateClock(newClock);
+        View.updateClock(clockDisplay);
     }
 
     // End loop at 30 seconds
