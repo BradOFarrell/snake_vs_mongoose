@@ -410,6 +410,12 @@ function loop(interval, turn){
         State.safeCreate(new Apple(3,4));     
     }
     if(newClock == 11){
+        State.safeCreate(new Apple(1,5));             
+        State.safeCreate(new Apple(5,1));     
+        State.safeCreate(new Apple(1,1));     
+        State.safeCreate(new Apple(5,5));     
+    }
+    if(newClock == 10){
         State.safeCreate(new Apple(0,1));     
         State.safeCreate(new Apple(1,0));     
         State.safeCreate(new Apple(5,6));     
@@ -417,20 +423,15 @@ function loop(interval, turn){
 
         State.safeCreate(new Apple(1,6));     
         State.safeCreate(new Apple(0,5));     
-        State.safeCreate(new Apple(1,5));     
-
         State.safeCreate(new Apple(6,1));     
         State.safeCreate(new Apple(5,0));     
-        State.safeCreate(new Apple(5,1));     
-        State.safeCreate(new Apple(5,5));     
-        State.safeCreate(new Apple(1,1));     
     }
-    if(newClock == 10){
+    if(newClock == 9){
         State.safeCreate(new Apple(0,0));     
         State.safeCreate(new Apple(6,6));     
         State.safeCreate(new Apple(6,0));     
         State.safeCreate(new Apple(0,6));     
-    }    
+    }
 
     // Run logic for every object on the board
     for(let i = 0; i < State.boardSize; i++){
