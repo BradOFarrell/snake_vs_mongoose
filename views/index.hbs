@@ -22,7 +22,7 @@
     Enter your username and submit your results to the server:
     <br/><br/>
     <p id="postform">
-    <form action="/" method="POST">
+    <form action="/" method="POST" onsubmit="setTimeout(function () { window.location.reload(); }, 10)">
         <table style="width:600px; text-align: left; margin-left: auto; margin-right: auto;">
             <tr><td>
                 <label for="username">Username</label>
@@ -33,29 +33,29 @@
             <tr><td>
                 <label for="log">Log</label>
             </td><td>
-                <input type="text" name="myLog" id="myLog" value="" disabled="disabled" readonly>
+                <input type="text" name="myLog" id="myLog" value="" readonly>
             </td></tr>
 
             <tr><td>
                 <label for="myScore">My Score</label>
             </td><td>
-                <input type="number" name="myScore" id="myScore" value="" disabled="disabled" readonly>
+                <input type="number" name="myScore" id="myScore" value="" readonly>
             </td></tr>
 
             <tr><td>
                 <label for="opponentName">Opponent Name</label>
             </td><td>
-                <input type="text" name="opponentName" id="opponentName" value="{{opponentName}}" disabled="disabled" readonly>
+                <input type="text" name="opponentName" id="opponentName" value="{{opponentName}}" readonly>
             </td></tr>
 
             <tr><td>
                 <label for="opponentScore">Opponent Score</label>
             </td><td>
-                <input type="number" name="opponentScore" id="opponentScore" value="" disabled="disabled" readonly>
+                <input type="number" name="opponentScore" id="opponentScore" value="" readonly>
             </td></tr>
 
             <tr><td style="text-align: center; margin-left: auto; margin-right: auto;" colspan="2"><br/>
-                <button type="submit" onClick="setTimeout(window.location.reload.bind(window.location), 1000)">Submit</button>
+                <button type="submit">Submit</button>
             </td></tr>
         </table>
     </form>
