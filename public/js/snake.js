@@ -47,6 +47,7 @@ const State = {
     timeOver: ()=>{
         State.isRunning = false;
         View.showResults()
+        $("#usernameBox").focus();        
         $("#myLog").val(State.snake.log)
         $("#myScore").val(State.snake.score)
         $("#opponentScore").val(State.mongoose.score)

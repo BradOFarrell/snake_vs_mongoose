@@ -6,10 +6,10 @@ img {
     background: #a4ae68
 }
 button {
-    color: red
+    color: green
 }
 form {
-    color: red
+    color: green
 }
 .dark{
     background: #68ae50
@@ -19,4 +19,16 @@ form {
 }
 .blood{
     background: #A51414
+}
+a:link {
+	color: #82d900;
+}
+a:visited {
+	color: #82d900;
+}
+a:hover {
+	color: #82d900;
+}
+a:active {
+	color: #82d900;
 }

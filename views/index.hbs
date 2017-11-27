@@ -6,40 +6,60 @@
     <h3 style="width:700px; align: center">
     <span style="float:left;">⏰ <span id="clock">30</span></span>
     <span style="float:right;">
-    <span style="color:#b26dff">You</span>
-    vs
-    <span style="color:#f3a065">{{opponentName}}</span></span>
+    <span style="color:#f3a065">🆚 {{opponentName}}</span></span>
     </h3>
-    <p style="clear:both"><br>This is an asynchronous multiplayer game. You control the snake with the arrow keys and the mongoose is controlled by ghost data left by another player - in this case, your opponent is {{opponentName}}. Try to get as many apples as you can while avoiding crashing into yourself, the mongoose, or the borders of the stage. If you can survive for 30 seconds, you will be able to enter your name and submit your data so that it can appear in another player's game as a mongoose. <em>Code by Brad O'Farrell, art by Vondell Swain.</em></p>
+    <p style="clear:both; width:700px"><br>This is an <em>asynchronous multiplayer game</em>.
+    <br/><br/>Use the arrow keys to move the <span style="color:#c69bf7">snake</span>. Collect as many 🍎 apples as possible and don't crash into anything. The <span style="color:#f3a065">mongoose</span>'s moves are based on ghost data from a previous player.
+    <br/><br/><em><strong>Survive for ⏰ 30 seconds to win!</strong></em>
+    <br/><br/><em>Code by <a href="https://github.com/BradOFarrell">Brad O'Farrell</a>, art by <a href="https://twitter.com/vondellswain">Vondell Swain</a>.</em></p>
 </div>
 
-<div class="container" style="width:700px; background: #19440A; visibility:hidden;" id="resultsPage">
+<div class="container" style="width:700px; background: #19440A; visibility:hidden; text-align: center; margin-left: auto; margin-right: auto;" id="resultsPage">
     <h1 id="resultsMessage">Congratulations!</h1>
-    </br>
-    Enter your username, and then click submit to send your results to the server.
+    <br/>
+    You survived ⏰ 30 seconds!
+    <br/><br/>
+    Enter your username and submit your results to the server:
+    <br/><br/>
     <p id="postform">
     <form action="/" method="POST">
-        <label for="username">Username</label>
-        <input type="text" name="username" value="YourNameHere">
-        </br>
-        <label for="log">Log</label>
-        <input type="text" name="myLog" id="myLog" value="" readonly>
-        </br>
-        <label for="myScore">My Score</label>
-        <input type="number" name="myScore" id="myScore" value="" readonly>
-        </br>
-        <label for="opponentName">Opponent Name</label>
-        <input type="text" name="opponentName" id="opponentName" value="{{opponentName}}" readonly>
-        </br>
-        <label for="opponentScore">Opponent Score</label>
-        <input type="number" name="opponentScore" id="opponentScore" value="" readonly>
-        </br>
-        <button type="submit" onClick="setTimeout(window.location.reload.bind(window.location), 1000)">Create</button>
+        <table style="width:600px; text-align: left; margin-left: auto; margin-right: auto;">
+            <tr><td>
+                <label for="username">Username</label>
+            </td><td>
+                <input type="text" name="username" id="usernameBox" placeholder="YourNameHere"><br/></br/>
+            </td></tr>
+
+            <tr><td>
+                <label for="log">Log</label>
+            </td><td>
+                <input type="text" name="myLog" id="myLog" value="" disabled="disabled" readonly>
+            </td></tr>
+
+            <tr><td>
+                <label for="myScore">My Score</label>
+            </td><td>
+                <input type="number" name="myScore" id="myScore" value="" disabled="disabled" readonly>
+            </td></tr>
+
+            <tr><td>
+                <label for="opponentName">Opponent Name</label>
+            </td><td>
+                <input type="text" name="opponentName" id="opponentName" value="{{opponentName}}" disabled="disabled" readonly>
+            </td></tr>
+
+            <tr><td>
+                <label for="opponentScore">Opponent Score</label>
+            </td><td>
+                <input type="number" name="opponentScore" id="opponentScore" value="" disabled="disabled" readonly>
+            </td></tr>
+
+            <tr><td style="text-align: center; margin-left: auto; margin-right: auto;" colspan="2"><br/>
+                <button type="submit" onClick="setTimeout(window.location.reload.bind(window.location), 1000)">Submit</button>
+            </td></tr>
+        </table>
     </form>
     </p>
-    </br>
-    Other results from the same oppoonent. (Under Construction)
-    <pre>{{results}}</pre>
 </div>
 <script>
 // Turn backend data into variables that can be used by snake.js using handlebars
