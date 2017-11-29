@@ -473,18 +473,21 @@ function loop(interval, turn){
 
 // Update snake's location with touch input
 function tap(x, y){
-    if(x > State.snake.x){
-        State.snake.rotate("n");        
-    }
-    if(x > State.snake.x){
-        State.snake.rotate("s");
-    }
-    if(y < State.snake.y){
-        State.snake.rotate("w");
-    }
-    if(y > State.snake.y){
-    State.snake.rotate("e");
-    }
+    if(State.snake.lastMove === "w" || State.snake.lastMove === "e"){
+        if(x > State.snake.x){
+            State.snake.rotate("n");        
+        }
+        if(x > State.snake.x){
+            State.snake.rotate("s");
+        }    
+    } else {
+        if(y < State.snake.y){
+            State.snake.rotate("w");
+        }
+        if(y > State.snake.y){
+        State.snake.rotate("e");
+        }
+     }
 }
 
 // Run initial functionality when page is fully loaded

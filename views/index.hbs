@@ -1,20 +1,5 @@
-    <h3 class="text-center">Snake vs Mongoose</h3>
-<div class="container" id="gamePage">
-    <p id="gameBoard">
-    <img src="/img/apple.png">
-    </p>
-    <h3 style="width:700px; align: center">
-    <span style="float:left;">⏰ <span id="clock">30</span></span>
-    <span style="float:right;">
-    <span style="color:#f3a065">🆚 {{opponentName}}</span></span>
-    </h3>
-    <p style="clear:both; width:700px"><br>This is an <em>asynchronous multiplayer game</em>.
-    <br/><br/>Use the arrow keys to move the <span style="color:#c69bf7">snake</span>. Collect as many 🍎 apples as possible and don't crash into anything. The <span style="color:#f3a065">mongoose</span>'s moves are based on ghost data from a previous player.
-    <br/><br/><em><strong>Survive for ⏰ 30 seconds to win!</strong></em>
-    <br/><br/><em>Code by <a href="https://github.com/BradOFarrell">Brad O'Farrell</a>, art by <a href="https://twitter.com/vondellswain">Vondell Swain</a>.</em></p>
-</div>
 
-<div class="container" style="width:700px; background: #19440A; visibility:hidden; text-align: center; margin-left: auto; margin-right: auto;" id="resultsPage">
+<div class="container" style="width:730px; background: #19440A; visibility:hidden; text-align: center; margin-left: auto; margin-right: auto; position: absolute; left: 0;right: 0;margin: auto" id="resultsPage">
     <h1 id="resultsMessage">Congratulations!</h1>
     <br/>
     You survived ⏰ 30 seconds!
@@ -61,6 +46,24 @@
     </form>
     </p>
 </div>
+
+<div class="container" style="width:730px; background: #19440A; visibility:visible; margin-left: auto; margin-right: auto;" id="gamePage">
+    <h3 style="width:700px" align="center"><span>Snake vs Mongoose</span></h3>
+    <p id="gameBoard">
+    <img src="/img/apple.png">
+    </p>
+    <h3 style="width:700px; text-align: center">
+    <span style="float:left;">⏰ <span id="clock">30</span></span>
+    <span style="float:right;">
+    <span style="color:#f3a065">🆚 {{opponentName}}</span></span>
+    </h3>
+    <p style="clear:both; width:700px"><br>This is an <em>asynchronous multiplayer game</em>.
+    <br/><br/>Use the arrow keys to move the <span style="color:#c69bf7">snake</span>. You can can also click or touch the board to move.
+    <br/><br/>Collect as many 🍎 apples as possible and don't crash into anything. The <span style="color:#f3a065">mongoose</span>'s moves are based on ghost data from a previous player.
+    <br/><br/><em><strong>Survive for ⏰ 30 seconds to win!</strong></em>
+    <br/><br/><em>Code by <a href="https://github.com/BradOFarrell">Brad O'Farrell</a>, art by <a href="https://twitter.com/vondellswain">Vondell Swain</a>.</em></p>
+</div>
+
 <script>
 // Turn backend data into variables that can be used by snake.js using handlebars
 const opponentName = "{{opponentName}}";
@@ -68,3 +71,4 @@ const mongoosePath = "{{mongoosePath}}";
 //const results = [{{results}}];
 </script>
 <script src="/js/snake.js"></script>
+<html>
