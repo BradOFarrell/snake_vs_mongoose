@@ -66,7 +66,7 @@ const View = {
                 } else {
                     styling = "light";
                 }
-                outputHTML+="<img src='/img/"+State.board[i][j].img+".png' id='x"+i+"y"+j+"' class='"+styling+"'>";
+                outputHTML+="<img src='/img/"+State.board[i][j].img+".png' id='x"+i+"y"+j+"' onClick='tap("+i+","+j+")' class='"+styling+"'>";
             }
             outputHTML+="</br>";            
         }
@@ -468,6 +468,22 @@ function loop(interval, turn){
         setTimeout(()=>{loop(interval, turn)},interval);
     } else {
         View.updateClock("<span style='color:red'>Game Over</span>");
+    }
+}
+
+// Update snake's location with touch input
+function tap(x, y){
+    if(x > State.snake.x){
+        State.snake.rotate("n");        
+    }
+    if(x > State.snake.x){
+        State.snake.rotate("s");
+    }
+    if(y < State.snake.y){
+        State.snake.rotate("w");
+    }
+    if(y > State.snake.y){
+    State.snake.rotate("e");
     }
 }
 
