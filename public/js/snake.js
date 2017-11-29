@@ -474,7 +474,7 @@ function loop(interval, turn){
 // Update snake's location with touch input
 function tap(x, y){
     if(State.snake.lastMove === "w" || State.snake.lastMove === "e"){
-        if(x > State.snake.x){
+        if(x < State.snake.x){
             State.snake.rotate("n");        
         }
         if(x > State.snake.x){
